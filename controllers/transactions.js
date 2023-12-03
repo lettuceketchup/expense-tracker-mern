@@ -4,8 +4,10 @@ const Transaction = require("../models/Transaction");
 // @route   GET /api/v1/transactions
 // @access  Public
 exports.getTransactions = async (req, res, next) => {
+    console.log(`getTransactions`);
     try {
         const Transactions = await Transaction.find();
+        console.log(Transactions);
 
         res.status(200).json({
             success: true,
@@ -69,6 +71,7 @@ exports.addTransaction = async (req, res, next) => {
 exports.deleteTransaction = async (req, res, next) => {
     try {
         const transaction = await Transaction.findById(req.params.id);
+        console.log(transaction);
 
         if (!transaction) {
             console.log(

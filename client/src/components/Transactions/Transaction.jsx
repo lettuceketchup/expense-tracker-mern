@@ -4,7 +4,7 @@ import { toCurrency } from "../../util/util";
 
 import { GlobalContext } from "../../context/GlobalState";
 
-const Transaction = ({ id, description, amount }) => {
+const Transaction = ({ _id, description, amount }) => {
     const { deleteTransaction } = useContext(GlobalContext);
 
     return (
@@ -21,7 +21,7 @@ const Transaction = ({ id, description, amount }) => {
             </div>
             <button
                 className="hidden group-hover:block bg-red-200 p-2 px-3"
-                onClick={() => deleteTransaction(id)}
+                onClick={() => deleteTransaction(_id)}
             >
                 X
             </button>
@@ -30,7 +30,7 @@ const Transaction = ({ id, description, amount }) => {
 };
 
 Transaction.propTypes = {
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
 };

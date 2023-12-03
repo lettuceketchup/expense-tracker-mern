@@ -9,7 +9,6 @@ const AddTransaction = () => {
     const validateAndAddTransaction = () => {
         if (description && amount) {
             const newTransaction = {
-                id: Math.floor(Math.random() * 100000000),
                 description,
                 amount: parseInt(amount),
             };
@@ -22,7 +21,7 @@ const AddTransaction = () => {
     return (
         <>
             <form
-                className="py-3 flex justify-stretch w-full shadow-sm"
+                className="flex justify-stretch w-full shadow-sm"
                 onSubmit={(e) => {
                     e.preventDefault();
                     validateAndAddTransaction();
@@ -31,7 +30,7 @@ const AddTransaction = () => {
                 <div className="grow flex-col items-end">
                     <label className="block grow flex-1">
                         <input
-                            className="py-1 px-2 w-full focus:outline-none"
+                            className="py-1 px-2 w-full focus:outline-none border-2 border-gray-200"
                             type="text"
                             placeholder="Description"
                             onChange={(e) => setDescription(e.target.value)}
@@ -40,7 +39,7 @@ const AddTransaction = () => {
                     </label>
                     <label className="block">
                         <input
-                            className="py-1 px-2 w-full text-right focus:outline-none"
+                            className="py-1 px-2 w-full text-right focus:outline-none border-2 border-t-0 border-gray-200"
                             type="text"
                             placeholder="Amount"
                             onChange={(e) => setAmount(e.target.value)}
